@@ -5,11 +5,12 @@ resource "aws_eip" "elastic_ip" {
 }
 
 resource "aws_nat_gateway" "nat_gw" {
-   allocation_id = aws_eip.elastic_ip.id
-   subnet_id = aws_subnet.public_subnets[0].id
-   tags = { 
-    Name = "NAT-gw"
-   }
+  allocation_id = aws_eip.elastic_ip.id
+  subnet_id     = aws_subnet.public_subnets[0].id
 
-   depends_on = [aws_internet_gateway.igw]
+  tags = {
+    Name = "session3-nat-gw"
+  }
+
+  depends_on = [aws_internet_gateway.igw]
 }
