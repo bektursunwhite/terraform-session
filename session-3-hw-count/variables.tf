@@ -15,3 +15,35 @@ variable "public_subnets_cidrs" {
    description = "Availibility zones"
    default = [ "us-east-1a", "us-east-1b", "us-east-1c" ]
  }
+
+ variable "instance_type" {
+  description = "Type of instance to create"
+  type        = string // string, number. boolean, list, map
+  default     = "t2.micro"
+}
+
+variable "ingress_ports" {
+  description = "a list of ingress ports"
+  type        = list(number)
+  default     = [22, 80, 443]
+
+}
+
+variable "ingress_cidr" {
+  description = "a list of cidr"
+  type        = list(string)
+  default     = ["10.0.0.0/16", "0.0.0.0/0", "0.0.0.0/0", "10.0.0.0/16"]
+
+}
+
+variable "env" {
+  description = "Environment name (dev, staging, prod)"
+  type        = string
+  default     = "dev"
+}
+
+variable "vpc_cidr_block" {
+  description = "vpc cidr block"
+  type = string
+  default = "10.0.0.0/16"
+}

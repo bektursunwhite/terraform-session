@@ -63,7 +63,7 @@ variable "env" {
  variable "owners" {
    description = "Resource Owner"
    type = string
-   default = "kris"
+   default = "beka"
  }
  variable "managed_by" {
    description = "Tool"
